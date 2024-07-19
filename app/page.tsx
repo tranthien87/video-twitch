@@ -1,9 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { icons } from "lucide-react";
-import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
-export default function Home() {
+
+export default function Page() {
   return (
-   <></>
+  <div className="">
+    <h1>Dashboard</h1>
+    <UserButton afterSwitchSessionUrl="/" />
+  </div>
   );
 }
