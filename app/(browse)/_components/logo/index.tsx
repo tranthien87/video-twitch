@@ -11,13 +11,13 @@ const poppins = Poppins({
 
 export const Logo = () => {
     return (
-        <Link href="/" className="hidden md:flex gap-x-2 hover:opacity-75 transition">
+        <Link href="/" className="hidden lg:flex gap-x-2 hover:opacity-75 transition">
             <div className="flex rounded-full justify-center bg-white w-[32px] h-[32px]">
                 <Image src='./Jackolantern.svg' alt="game hub" width="32" height='32' />
             </div>
             <div className={cn("flex flex-col items-left", poppins.className)}>
                 <p className='text-lg font-semibold'>GameHub</p>
-                <p className='text-xs font-semibold'>Let&apos;s Play</p>
+                <p className='text-xs text-muted-foreground'>Let&apos;s Play</p>
             </div>
         </Link>
     )
