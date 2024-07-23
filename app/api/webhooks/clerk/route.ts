@@ -2,10 +2,10 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import User from '@/models/user';
-import { Types, ObjectId } from 'mongoose';
-import { log } from 'console';
+
 
 export async function POST(req: Request) {
+    
     const WEBHOOK_SECRET = process.env.CLERK_WEBHOOKS_SECRECT
 
     if (!WEBHOOK_SECRET) {
@@ -53,6 +53,8 @@ export async function POST(req: Request) {
     const eventType = evt.type;
     console.log(`Webhook with type of ${eventType}`)
     if(eventType === 'user.created') {
+        const foundUser = await User.findOne({userId: payload.data.id});
+        if(foundUser) return;
         await User.create({
             userId: payload.data.id,
             userName: payload.data.username,
