@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundColor: {
+        sideBarBG: "#2a2b2f"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

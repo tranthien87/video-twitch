@@ -1,4 +1,7 @@
 import Navbar from "@/app/(browse)/_components/navbar";
+import { SideBar } from "./_components/sidebar";
+import { Container } from "./_components/container";
+
 
 
 export default function Browselayout({children}: {children: React.ReactNode}) {
@@ -6,7 +9,10 @@ export default function Browselayout({children}: {children: React.ReactNode}) {
         <>
             <Navbar />
             <div className="h-full pt-20">
-                {children}
+                <SideBar />
+                <Container>
+                    {children}
+                </Container>
             </div>
         </>
     )
