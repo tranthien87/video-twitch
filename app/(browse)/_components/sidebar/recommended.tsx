@@ -1,13 +1,14 @@
 "use client"
 import { useSideBar } from "@/store/use-sidebar"
 import {User} from "@/lib/types";
-import { UserItem } from "./user-item";
+import { UserItem, UserSkeleton } from "./user-item";
+
 
 interface RecommendedProps {
     data: User[],
 }
 
-export const Recommended = ({data}: RecommendedProps) => {
+export const Recommended = ({data}: RecommendedProps) => { 
     const {collapsed} = useSideBar(state => state);
     const showLabel = !collapsed && data.length > 0
     return (
@@ -19,18 +20,28 @@ export const Recommended = ({data}: RecommendedProps) => {
                     </p>
                 </div>
             )}
-            <ul>
+            <div className="space-y-2">
                 {
                     data.map((user) => (
                         <UserItem 
                             key={user.userId} 
                             userName={user.userName}
                             imageUrl={user.imageUrl}
-                            isLive={true}
+                            isLive={false}
                             />
                     ))
                 }
-            </ul>
+            </div>
         </div>
+    )
+}
+
+export const RecommendedSkeleton = () => {
+    return (
+        <ul className="px-2">
+          {[...Array(3)].map((_, i) => (
+             <UserSkeleton key={i} />
+          ))}
+        </ul>
     )
 }

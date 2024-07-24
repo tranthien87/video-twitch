@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Hint } from "@/components/ui/hint";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSideBar } from "@/store/use-sidebar"
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 
@@ -47,5 +48,15 @@ export const Toggle = () => {
             </div>
            )}
         </>
+    )
+}
+
+export const ToggleSkeleton = () => {
+    return (
+        <div className="hidden lg:flex justify-between items-center w-full pt-2 px-2 ">
+            <Skeleton className="h-6 w-[100px]" />
+            <Skeleton className="h-6 w-6" />
+        </div>    
+
     )
 }

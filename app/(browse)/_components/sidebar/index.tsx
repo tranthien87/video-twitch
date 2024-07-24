@@ -1,9 +1,9 @@
 
-import getSeft from "@/lib/auth-services"
-import { Toggle } from "./toggle"
+import { Toggle, ToggleSkeleton } from "./toggle"
 import { Wrapper } from "./wrapper"
-import { Recommended } from "./recommended";
+import { Recommended, RecommendedSkeleton } from "./recommended";
 import RecommenedUsers from "@/lib/recommended-services";
+
 
 export const SideBar = async () => {
   const recommendedUsers = await RecommenedUsers();
@@ -16,4 +16,14 @@ export const SideBar = async () => {
         </div>
       </Wrapper>
     )
+}
+
+
+export const SideBarSkeleton = () => {
+  return (
+    <aside className="fixed left-0 flex flex-col items-cente w-[70px] lg:w-60 h-full bg-background border-r border-[#2D2E35] z-50">
+      <ToggleSkeleton />
+      <RecommendedSkeleton />
+    </aside>
+  )
 }
