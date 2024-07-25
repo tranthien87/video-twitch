@@ -3,11 +3,12 @@ import { Toggle, ToggleSkeleton } from "./toggle"
 import { Wrapper } from "./wrapper"
 import { Recommended, RecommendedSkeleton } from "./recommended";
 import RecommenedUsers from "@/lib/recommended-services";
+import { jsonParse } from "@/lib/utils";
 
 
 export const SideBar = async () => {
   const recommendedUsers = await RecommenedUsers();
-  const parseData = JSON.parse(JSON.stringify(recommendedUsers))
+  const parseData = jsonParse(recommendedUsers);
     return (
       <Wrapper>
         <Toggle />

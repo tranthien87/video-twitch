@@ -2,6 +2,7 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import User from '@/models/user';
+import follow from '@/models/follow';
 
 
 export async function POST(req: Request) {
@@ -58,9 +59,8 @@ export async function POST(req: Request) {
         await User.create({
             userId: payload.data.id,
             userName: payload.data.username,
-            imageUrl: payload.data.image_url
+            imageUrl: payload.data.image_url,
         })
-        
     }
     if(eventType === 'user.updated') {
         const foundUser = await User.findOne({userId: payload.data.id});

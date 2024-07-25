@@ -16,6 +16,7 @@
     "@radix-ui/react-tooltip": "^1.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.408.0",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.1",
@@ -28,9 +29,11 @@
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.0",
+    "uuidv4": "^6.2.13",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
