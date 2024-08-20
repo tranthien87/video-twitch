@@ -11,7 +11,7 @@ export const isFollowingUser = async (id: string) => {
     if(!anotherUser) {
         throw new Error("User not found")
     }
-    if(anotherUser.userId === id) {
+    if(anotherUser.userId === seft.userId) {
         return true;
     }
 
@@ -21,7 +21,6 @@ export const isFollowingUser = async (id: string) => {
     })
 
     return !!existingFollow;
-
 
    } catch (error) {
      return false;

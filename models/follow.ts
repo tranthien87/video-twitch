@@ -9,8 +9,8 @@ const FollowSchema = new Schema({
         default: () => uuid()
       },
     followerId: {type: String, require: true},
-    follower: {type: String, require: true, ref: "User"}, // reference userId of User model
     followingId: {type: String, require: true},
+    follower: {type: String, require: true, ref: "User"}, // reference userId of User model
     following: {type: String, require: true, ref: "User"},// reference userId of User model
 }, {
     timestamps: true,

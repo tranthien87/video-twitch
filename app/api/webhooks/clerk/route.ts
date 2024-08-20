@@ -2,7 +2,6 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import User from '@/models/user';
-import follow from '@/models/follow';
 
 
 export async function POST(req: Request) {
@@ -50,11 +49,13 @@ export async function POST(req: Request) {
       // Do something with the payload
     // For this guide, you simply log the payload to the console
 
+
    
     const eventType = evt.type;
-    console.log(`Webhook with type of ${eventType}`)
+    console.log(`Webhook with type of ${eventType}`);
+    console.log(`Payload`, payload.data)
     if(eventType === 'user.created') {
-        const foundUser = await User.findOne({userId: payload.data.id});
+        const foundUser = await User.findOne({userId: payload.data.id, userName: payload.data.username});
         if(foundUser) return;
         await User.create({
             userId: payload.data.id,

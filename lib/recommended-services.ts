@@ -7,10 +7,10 @@ export default async function RecommenedUsers () {
     try {
         const seft = await getSeft();
         userId = seft.userId;
+        console.log('userID', userId);
     } catch (error) {
         userId = null;
     }
-
     const recommendedUsers = await User.find({ userId: { $ne: userId}}).lean().sort({createAt: 1});
     return recommendedUsers;
  }
