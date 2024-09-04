@@ -14,7 +14,7 @@ export default function Browselayout({children}: {children: React.ReactNode}) {
                     <SideBar />
                 </Suspense>
                 <Container>
-                    {children}
+                    {children} 
                 </Container>
             </div>
         </>

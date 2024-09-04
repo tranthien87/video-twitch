@@ -1,24 +1,33 @@
 import mongoose from "mongoose";
+import Joi from "joi"
 
-let isConnected = false;
-let connect_url = process.env.MONGO_URI;
-if(!connect_url) {
-    throw new Error('Connect string database error !!!')
-}
+const connectUrlSchema = Joi.string().uri().required();
+
+let connection;
+
 const connectDB = async () => {
-    if (isConnected) {
+
+    if (connection) {
         console.log("Already connected to DB");
-        return;
+        return connection;
     }
 
+    const connectUrl = process.env.MONGO_URI;
+    try {
+        await connectUrlSchema.validate(connectUrl);
+      } catch (error) {
+        throw new Error(`Invalid MongoDB connection string: ${error.message}`);
+      }
+
    try {
-    await mongoose.connect(connect_url, {
-        dbName: "VideoTwitch"
+    connection = await mongoose.connect(connectUrl, {
+        dbName: process.env.MONGO_DB_NAME || "VideoTwitch",
     })
     console.log('Mongodb connect successfull!!!');
-    isConnected = true;
+    return connection;
    } catch (error) {
-    console.error(error)
+    console.error(error);
+    throw error; 
    }
 }
 export default connectDB;

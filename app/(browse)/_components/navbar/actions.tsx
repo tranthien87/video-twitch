@@ -23,14 +23,14 @@ export const Actions = async () => {
                         variant="ghost"
                         className="text-muted-foreground hover:text-primary"
                         asChild>
-                        <Link href={`/u/${user.username}`}>
+                        <Link href={`/${user.username}`}>
                             <Clapperboard className="h-5 w5 lg:mr-2"/>
                             <span className="hidden lg:block">
                                 Dash Board
                             </span>
                         </Link>
                     </Button>
-                    <UserButton afterSwitchSessionUrl="/" />
+                    <UserButton  />
                 </div>
             )}
         </div>

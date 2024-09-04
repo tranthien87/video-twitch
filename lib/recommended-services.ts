@@ -11,6 +11,12 @@ export default async function RecommenedUsers () {
     } catch (error) {
         userId = null;
     }
-    const recommendedUsers = await User.find({ userId: { $ne: userId}}).lean().sort({createAt: 1});
-    return recommendedUsers;
+    let users = [];
+    if (userId) {
+        users = await User.find({ userId: { $ne: userId}}).sort({createAt: 1}).lean();
+    } else {
+        users = await User.find().sort({createAt: 1}).lean();
+    }
+
+    return users;
  }
