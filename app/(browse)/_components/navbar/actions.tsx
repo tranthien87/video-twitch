@@ -30,7 +30,7 @@ export const Actions = async () => {
                             </span>
                         </Link>
                     </Button>
-                    <UserButton  />
+                    <UserButton afterSwitchSessionUrl="/" />
                 </div>
             )}
         </div>
