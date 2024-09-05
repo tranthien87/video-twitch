@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark}} afterSignOutUrl="/">
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${inter.className} antialiased`}>
           <ThemeProvider
             attribute='class'
             forcedTheme='dark'

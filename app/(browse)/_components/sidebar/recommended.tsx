@@ -2,6 +2,7 @@
 import { useSideBar } from "@/store/use-sidebar"
 import {User} from "@/lib/types";
 import { UserItem, UserSkeleton } from "./user-item";
+import { Link } from "lucide-react";
 
 
 interface RecommendedProps {
@@ -19,6 +20,7 @@ export const Recommended = ({data}: RecommendedProps) => {
                         Recommended
                     </p>
                 </div>
+                
             )}
             <div className="space-y-2">
                 {
@@ -32,6 +34,7 @@ export const Recommended = ({data}: RecommendedProps) => {
                     ))
                 }
             </div>
+           
         </div>
     )
 }
